@@ -2,7 +2,8 @@ CC=gcc
 CFLAGS=-Wall -g
 LDFLAGS= -lrdmacm -libverbs
 
-all: server client
+# all: server client
+all: rdma
 
 rdma: rdma.o
 	$(CC) $(CFLAGS) rdma.o -o rdma $(LDFLAGS)	
