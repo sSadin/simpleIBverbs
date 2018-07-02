@@ -88,7 +88,7 @@ static void rdma_write(struct app_context *ctx, struct app_data *data);
 
 int main(int argc, char *argv[])
 {
-	//unused struct app_context 		*ctx = NULL;
+	struct app_context 		*ctx = NULL;
 	//unused char                    *ib_devname = NULL;
 	//unused int                   	iters = 1000;
 	//unused int                  	scnt, ccnt;
