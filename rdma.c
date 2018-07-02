@@ -78,7 +78,7 @@ static void print_ib_connection(char *conn_name, struct ib_connection *conn);
 
 static int tcp_exch_ib_connection_info(struct app_data *data);
 
-static int connect_ctx(struct app_context *ctx, struct app_data *data);
+//unused static int connect_ctx(struct app_context *ctx, struct app_data *data);
 
 static int qp_change_state_init(struct ibv_qp *qp, struct app_data *data);
 static int qp_change_state_rtr(struct ibv_qp *qp, struct app_data *data);
@@ -88,12 +88,12 @@ static void rdma_write(struct app_context *ctx, struct app_data *data);
 
 int main(int argc, char *argv[])
 {
-	struct app_context 		*ctx = NULL;
-	char                    *ib_devname = NULL;
-	int                   	iters = 1000;
-	int                  	scnt, ccnt;
-	int                   	duplex = 0;
-	struct ibv_qp			*qp;
+	//unused struct app_context 		*ctx = NULL;
+	//unused char                    *ib_devname = NULL;
+	//unused int                   	iters = 1000;
+	//unused int                  	scnt, ccnt;
+	//unused int                   	duplex = 0;
+	//unused struct ibv_qp			*qp;
 
 	struct app_data	 	 data = {
 		.port	    		= 18515,
@@ -205,9 +205,9 @@ static int tcp_client_connect(struct app_data *data)
 	};
 
 	char *service;
-	int n;
+	//unused int n;
 	int sockfd = -1;
-	struct sockaddr_in sin;
+	//unused struct sockaddr_in sin;
 
 	TEST_N(asprintf(&service, "%d", data->port),
 			"Error writing port-number to port-string");
@@ -234,7 +234,7 @@ static int tcp_client_connect(struct app_data *data)
  *  Creates a TCP server socket  which listens for incoming connections 
  */
 static int tcp_server_listen(struct app_data *data){
-	struct addrinfo *res, *t;
+	struct addrinfo *res;//unused , *t;
 	struct addrinfo hints = {
 		.ai_flags		= AI_PASSIVE,
 		.ai_family		= AF_UNSPEC,
@@ -244,7 +244,7 @@ static int tcp_server_listen(struct app_data *data){
 	char *service;
 	int sockfd = -1;
 	int n, connfd;
-	struct sockaddr_in sin;
+	//unused struct sockaddr_in sin;
 
 	TEST_N(asprintf(&service, "%d", data->port),
             "Error writing port-number to port-string");
@@ -279,7 +279,7 @@ static int tcp_server_listen(struct app_data *data){
 static struct app_context *init_ctx(struct app_data *data)
 {
 	struct app_context *ctx;
-	struct ibv_device *ib_dev;
+	//unused struct ibv_device *ib_dev;
 
 	ctx = malloc(sizeof *ctx);
 	memset(ctx, 0, sizeof *ctx);
