@@ -1,16 +1,14 @@
-CC=gcc
-CFLAGS=-Wall -g -o0
-LDFLAGS= -lrdmacm -libverbs
+.PHONY: clean
+CFLAGS  := -Wall -Werror -g -O0
+LD      := gcc
+LDFLAGS := ${LDFLAGS} -libverbs -lrdmacm
+APPS    := rdma
 
-# all: server client
-all: rdma
+all: ${APPS}
 
 rdma: rdma.o
-	$(CC) rdma.o -o rdma $(LDFLAGS)	
+	${LD} -o $@ $^ ${LDFLAGS}
 
-rdma.o: rdma.c
-	${CC} $(CFLAGS) -c rdma.c
-
-clean_rdma:
-	rm -f rdma rdma.o
+clean:
+	rm -f *.o ${APPS}
 
